@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 2px solid black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" align="center" hidden>
+        <button id="incrementButton">Tekan Aku:)</button>
+        <h3>Kamu sudah menekan tombol <sebanyakspan id="count">0</sebanyakspan></h3>
+    </div>
+    <script>
+        function welcome(){
+            alert('Sim salabim mucullah element-elemet')
+            const content = document.querySelector('.content')
+            content.removeAttribute('hidden')
+        }
+
+        function increment(){
+            console.log(document.getElementById('count').innerText++)
+
+            if(document.getElementById('count').innerText == 7){
+                const hiddenMessage = document.createElement('h4')
+                hiddenMessage.innerText ='kamu Menemukan hadiah tersembunyi'
+
+                const image = document.createElement('img')
+                image.setAttribute('src','https://i.ibb.co/0V49VRZ/catto.jpg')
+
+                document.querySelector('.content').appendChild(hiddenMessage).appendChild(image)
+                alert("Selamat anda menemukan hadiah tersembunyi")
+            }
+        }
+
+        // document.getElementById('incrementButton').onclick = increment
+        // document.body.onload = welcome
+
+        window.addEventListener('load',welcome)
+        document.getElementById('incrementButton').addEventListener('click',increment)
+    </script>
+</body>
+</html>
