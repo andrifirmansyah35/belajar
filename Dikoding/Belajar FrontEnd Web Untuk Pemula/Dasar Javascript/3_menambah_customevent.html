@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenet World</title>
+    <style>
+        .buttons{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 2px solid black;
+            padding: 15px;
+        }
+
+        .button {
+            margin: 8px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons" align="center">
+        <h3 id="caption">Silahkan Tekan Salah Satu tombol dibawah</h3>
+        <button class="button" id="tombol">Tombol Custom event</button>
+    </div>
+    <script>
+    // Tulis Kode kamu Disini
+    const changeCaption = new Event('changeCaption')
+
+    window.addEventListener('load',function(){
+        const tombol = document.getElementById('tombol')
+
+        tombol.addEventListener('changeCaption',customEventHandler)
+        tombol.addEventListener('click',function(){
+            tombol.dispatchEvent(changeCaption)
+        })
+    })
+
+    function customEventHandler(ev){
+        console.log('Event' +ev.type+'Telah Dijalankan')
+        const caption = document.getElementById('caption')
+        caption.innerText = 'Anda telah membangkitkan custom event'
+    }
+
+    document.addEventListener(RENDER_EVENT,function(){
+        // console.log(todos)
+        const uncompleatedTOdoList = document.getElementById('todos')
+        uncompleatedTOdoList.innerHTML = ''
+
+        for(const todoItem of todos){
+            const todoelement = makeTodo(todoItem)
+            uncompleatedTOdoList.append(todoelement)
+        }
+    })
+    </script>
+</body>
+</html>
