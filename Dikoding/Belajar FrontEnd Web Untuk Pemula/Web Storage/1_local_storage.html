@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Local Storage</title>
+    <style>
+        .content{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 2px solid black;
+            padding: 15px;
+        }
+
+        #generateButton{
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" align="center">
+        <button id="incrementButton">Tambai Nilai</button>
+        <button id="clear">Hapus Storage</button>
+        <h3>Kamu sudah menekan tombol diatas sebanyak:</h3>
+        <h2 id="count">0</h2>
+    </div>
+    <script>
+        const localStorageKey = 'PRESS_FREQUENCY'
+
+        // pengecekan apakah local data dengan key count sudah ada
+        if(typeof(localStorage)){
+            if(localStorage.getItem(localStorageKey) == null){
+                // jika item pada local storage belum ada
+                // maka akan diberi nilai awal 0
+                localStorage.setItem(localStorageKey,0)
+            }
+                const incrementButton = document.querySelector('#incrementButton')
+                const clearButton = document.querySelector('#clear')
+                const countDisplay = document.querySelector('#count')
+
+                // memberikan nilai  item pada local Storage
+                countDisplay.innerText = localStorage.getItem(localStorageKey)
+
+                // Mengupdate nilai item local storage jika tombol ditekan
+                    incrementButton.addEventListener('click', function () {
+                    let count = localStorage.getItem(localStorageKey);
+                    count++;
+                    localStorage.setItem(localStorageKey, count);
+                    countDisplay.innerText = localStorage.getItem(localStorageKey);
+                    // console.log('tombol increment sudah ditekan')
+                });
+
+
+                // Mereset nilai
+                clearButton.addEventListener('click',function(){
+                    // localStorage.setItem(localStorageKey,0)  //salah
+                    localStorage.removeItem(localStorageKey)
+                    countDisplay.innerText = 0
+                })
+    }else{
+            alert('Browser anda tidak mendukung web storage')
+        }
+
+    </script>
+</body>
+</html>
