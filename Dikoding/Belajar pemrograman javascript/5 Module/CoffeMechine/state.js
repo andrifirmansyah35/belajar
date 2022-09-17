@@ -4,7 +4,7 @@
 //   liberica: 200
 // }
  
-// module.exports = coffeeStock;
+module.exports = coffeeStock;
 
 // // console.log(module) //nilai akan tersimpan pada export
 
@@ -42,3 +42,9 @@ const coffeeStock = {
 const isCoffeeMachineReady = true;
  
 export {coffeeStock, isCoffeeMachineReady};
+
+ console.log(findMax(1, 2, 3))
+ console.log(findMax(5, 1, 2))
+ console.log(findMax(102, 404, 48))
+ console.log(findMax(-1, 0, -1))
+ console.log(findMax(2, 2, 2))
