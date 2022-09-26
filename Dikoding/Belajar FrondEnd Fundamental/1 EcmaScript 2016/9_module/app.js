@@ -1,4 +1,4 @@
-import {coffeeStock, isCoffeeMakerReady} from './state.js';
+import {coffeeStock, isCoffeeMakerReady} from './data/state.js';
  
 const displayStock = stock => {
   const coffeeStockListElement = document.querySelector('#coffee-stock-list');

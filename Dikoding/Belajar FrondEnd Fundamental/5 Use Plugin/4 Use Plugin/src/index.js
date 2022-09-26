@@ -1,0 +1,19 @@
+import './style/style.css';
+
+// menggunakan import karena sudah dibundel =======================================
+import $ from 'jquery';
+import moment from 'moment';
+
+
+const displayTime = () => {
+  moment.locale('id');
+  $('.time').text(moment().format('LTS'));
+  $('.date').text(moment().format('LL'));
+};
+ 
+const updateTime = () => {
+  displayTime();
+  setTimeout(updateTime, 1000);
+};
+ 
+updateTime();
