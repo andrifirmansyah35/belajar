@@ -5,7 +5,7 @@ import DataSource from '../data/data-source.js';
 
 var main = () => {
   const searchElement = document.querySelector('search-bar');
-  // const buttonSearchElement = document.querySelector('#searchButtonElement');
+  // const buttonSearchElement = document.querySelector('#searchButtonElement'); 
   const clubListElement = document.querySelector('#clubList');
 
 const onButtonSearchClicked = async () => {

@@ -11,6 +11,10 @@ if (!imageFigureElement) {
 setTimeout(() => {
   imageFigureElement.setAttribute('caption', 'Gambar 1');
 }, 3000);
+
+setTimeout(() => {
+  imageFigureElement.setAttribute('haji', 'haji');
+}, 4000);
  
 // menghapus imageFigureElement dari DOM
 setTimeout(() => {
