@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:wisatabandung2/codelab1/detail_screen.dart';
 // import 'package:wisatabandung2/lat_komponen/i_expanded.dart';
 
 // /Lat Komponen ============================================
@@ -13,26 +14,26 @@ import 'package:flutter/material.dart';
 // import 'package:wisatabandung2/lat_komponen/ia_expanded_flexible.dart';
 // import 'package:wisatabandung2/lat_komponen/j_navigation.dart';
 // import 'package:wisatabandung2/lat_komponen/ja_navigation_data.dart';
-import 'package:wisatabandung2/lat_komponen/ka_builder_query.dart';
+// import 'package:wisatabandung2/lat_komponen/ka_builder_query.dart';
 
 // Run untuk lat componen ================================================
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Wisata Bandung',
-      theme: ThemeData(),
-      home: const HomePage(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'Wisata Bandung',
+//       theme: ThemeData(),
+//       home: const HomePage(),
+//     );
+//   }
+// }
 
 // Codelab 1 ==========================================================================
 // import 'package:wisatabandung2/codelab1/detail_screen.dart';
@@ -41,26 +42,26 @@ class MyApp extends StatelessWidget {
 // import 'package:wisatabandung2/codelab2/detail_screen_lat.dart';
 
 // Codelab 3 ===========================================================================
-// import 'package:wisatabandung2/codelab3/main_screen.dart';
+import 'package:wisatabandung2/codelab31/main_screen.dart';
 
 // Codelab 4 ==========================================================================
 //ctt : code lab ini hanya sbelum menerapkan web
 // import 'package:wisatabandung2/codelab4/main_screen.dart';
 
 // RUN untuk codelab ====================================================
-// void main() {
-//   runApp(const MyApp());
-// }
+void main() {
+  runApp(const MyApp());
+}
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Wisata Bandung',
-//       theme: ThemeData(),
-//       home: const DetailScreen(),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Wisata Bandung',
+      theme: ThemeData(),
+      home: const MainScreen(),
+    );
+  }
+}
