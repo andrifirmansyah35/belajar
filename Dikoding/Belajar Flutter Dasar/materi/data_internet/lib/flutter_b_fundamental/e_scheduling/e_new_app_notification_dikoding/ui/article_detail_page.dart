@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/data/model/article.dart';
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/ui/article_web_view.dart';
+import 'package:data_internet/flutter_b_fundamental/e_scheduling/e_new_app_notification_dikoding/data/model/article.dart';
+import 'package:data_internet/flutter_b_fundamental/e_scheduling/e_new_app_notification_dikoding/ui/article_web_view.dart';
 import 'package:flutter/material.dart';
 
 class ArticleDetailPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class ArticleDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News App'),
+        title: const Text('News Detail Provider'),
       ),
       body: SingleChildScrollView(
         child: Column(

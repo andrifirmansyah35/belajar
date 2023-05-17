@@ -1,6 +1,6 @@
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/common/styles.dart';
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/data/model/article.dart';
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/ui/article_detail_page.dart';
+import 'package:data_internet/flutter_b_fundamental/e_scheduling/e_new_app_notification_dikoding/common/styles.dart';
+import 'package:data_internet/flutter_b_fundamental/e_scheduling/e_new_app_notification_dikoding/data/model/article.dart';
+import 'package:data_internet/flutter_b_fundamental/e_scheduling/e_new_app_notification_dikoding/ui/article_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class CardArticle extends StatelessWidget {

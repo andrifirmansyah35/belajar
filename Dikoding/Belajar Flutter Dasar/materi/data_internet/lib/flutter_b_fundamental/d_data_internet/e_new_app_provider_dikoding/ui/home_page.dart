@@ -1,11 +1,15 @@
 import 'dart:io';
 
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/common/styles.dart';
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/ui/article_list_page.dart';
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/ui/settings_page.dart';
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/widgets/platform_widget.dart';
+import 'package:data_internet/flutter_b_fundamental/d_data_internet/e_new_app_provider_dikoding/common/styles.dart';
+import 'package:data_internet/flutter_b_fundamental/d_data_internet/e_new_app_provider_dikoding/ui/article_list_page.dart';
+import 'package:data_internet/flutter_b_fundamental/d_data_internet/e_new_app_provider_dikoding/ui/settings_page.dart';
+import 'package:data_internet/flutter_b_fundamental/d_data_internet/e_new_app_provider_dikoding/widgets/platform_widget.dart';
+import 'package:data_internet/flutter_b_fundamental/d_data_internet/e_new_app_provider_dikoding/news_provider.dart';
+import 'package:data_internet/flutter_b_fundamental/d_data_internet/e_new_app_provider_dikoding/data/api/api_service.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home_page';
@@ -20,9 +24,17 @@ class _HomePageState extends State<HomePage> {
   int _bottomNavIndex = 0;
   static const String _headlineText = 'Headline';
 
-  final List<Widget> _listWidget = const [
-    ArticleListPage(),
-    SettingsPage(),
+  // final List<Widget> _listWidget = const [ //digantikan
+  //   ArticleListPage(),
+  //   SettingsPage(),
+  // ];
+
+  final List<Widget> _listWidget = [
+    ChangeNotifierProvider<NewsProvider>(
+      create: (_) => NewsProvider(apiService: ApiService()),
+      child: const ArticleListPage(),
+    ),
+    const SettingsPage(),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = [

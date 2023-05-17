@@ -19,6 +19,10 @@ class ArticleListPage extends StatefulWidget {
 class _ArticleListPageState extends State<ArticleListPage> {
   late Future<ArticlesResult> _article;
 
+  // Future<void> getArticle() async {
+  //   _article = await ApiService().topHeadlines();
+  // }
+
   @override
   void initState() {
     super.initState();
@@ -36,57 +40,56 @@ class _ArticleListPageState extends State<ArticleListPage> {
   }
 
   Widget _buildList(BuildContext context) {
-    return FutureBuilder<ArticlesResult>(
-      future: _article,
-      builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
-        var state = snapshot.connectionState;
-
-        if (state != ConnectionState.done) {
-          return const Center(child: CircularProgressIndicator());
-          // return const Center(child: Text('Kontol'));
-        } else {
-          // print(_article);
-          if (snapshot.hasData) {
-            // print(snapshot.data?.articles);
-
-            return ListView.builder(
-              shrinkWrap: true,
-              itemCount: snapshot.data?.articles.length,
-              itemBuilder: (context, index) {
-                var article = snapshot.data?.articles[index];
-
-                return CardArticle(article: article!);
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ElevatedButton(
+              //meng kontol diri dari ucapan yang tidak baik
+              onPressed: () {
+                _article = ApiService().topHeadlines();
+                setState(
+                  () {
+                    // initState();
+                  },
+                );
               },
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Material(
-                child: Text(snapshot.error.toString()),
-              ),
-            );
-          } else {
-            return const Material(child: Text('kontol'));
-          }
-        }
-      },
+              child: const Text('Refresh')),
+          FutureBuilder<ArticlesResult>(
+            future: _article,
+            builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
+              var state = snapshot.connectionState;
+
+              if (state != ConnectionState.done) {
+                return const Center(child: CircularProgressIndicator());
+                // return const Center(child: Text('Kontol'));
+              } else {
+                // print(_article);
+                if (snapshot.hasData) {
+                  // print(snapshot.data?.articles);
+
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data?.articles.length,
+                    itemBuilder: (context, index) {
+                      var article = snapshot.data?.articles[index];
+
+                      return CardArticle(article: article!);
+                    },
+                  );
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Material(
+                      child: Text(snapshot.error.toString()),
+                    ),
+                  );
+                } else {
+                  return const Material(child: Text('kontol'));
+                }
+              }
+            },
+          )
+        ],
+      ),
     );
   }
-  // Widget _buildArticleItem(BuildContext context, Article article) {    //sudah kita buat pada card article
-  //   return ListTile(
-  //     contentPadding:
-  //         const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-  //     leading: Hero(
-  //         tag: article.urlToImage,
-  //         child: Image.network(
-  //           article.urlToImage,
-  //           width: 100,
-  //         )),
-  //     title: Text(article.title),
-  //     subtitle: Text(article.author),
-  //     onTap: () {
-  //       Navigator.pushNamed(context, ArticleDetailPage.routename,
-  //           arguments: article);
-  //     },
-  //   );
-  // }
 }

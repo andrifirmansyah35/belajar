@@ -1,4 +1,4 @@
-import 'package:data_internet/flutter_b_fundamental/d_data_internet/f_new_app_provider/widgets/platform_widget.dart';
+import 'package:data_internet/flutter_b_fundamental/e_scheduling/e_new_app_notification_dikoding/widgets/platform_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
